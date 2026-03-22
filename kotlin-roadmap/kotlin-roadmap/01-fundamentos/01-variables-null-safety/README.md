@@ -34,7 +34,7 @@ nombre = "Luis"      // ❌ Error de compilación
 
 > 🔑 **Regla de oro:** usa siempre `val` por defecto. Solo usa `var` cuando realmente necesites cambiar el valor.
 
-▶️ [Ejecutar en Kotlin Playground](https://play.kotlinlang.org/editor/v1?code=fun%20main%28%29%20%7B%0A%20%20%20%20val%20nombre%20%3D%20%22Ana%22%20%20%20//%20inmutable%0A%20%20%20%20var%20edad%20%3D%2025%20%20%20%20%20%20%20%20//%20mutable%0A%20%20%20%20edad%20%3D%2026%0A%20%20%20%20println%28nombre%29%0A%20%20%20%20println%28edad%29%0A%7D)
+▶️ [Ejecutar en Kotlin Playground](https://play.kotlinlang.org/#eyJ2ZXJzaW9uIjoiMi4zLjIwIiwicGxhdGZvcm0iOiJqYXZhIiwiYXJncyI6IiIsIm5vbmVNYXJrZXJzIjp0cnVlLCJ0aGVtZSI6ImlkZWEiLCJjb2RlIjoiLyoqXG4gKiBZb3UgY2FuIGVkaXQsIHJ1biwgYW5kIHNoYXJlIHRoaXMgY29kZS5cbiAqIHBsYXkua290bGlubGFuZy5vcmdcbiAqL1xuZnVuIG1haW4oKSB7XG4gIHZhbCBub21icmUgPSBcIkFuYVwiICAgLy8gaW5tdXRhYmxlIChubyBzZSBwdWVkZSByZWFzaWduYXIpXG4gIHZhciBlZGFkID0gMjUgICAgICAgIC8vIG11dGFibGUgKHNlIHB1ZWRlIGNhbWJpYXIpXG5cbiAgZWRhZCA9IDI2ICAgICAgICAgICAgLy8g4pyFIE9LXG4gIG5vbWJyZSA9IFwiTHVpc1wiICAgICAgLy8g4p2MIEVycm9yIGRlIGNvbXBpbGFjacOzblxufSJ9)
 
 ---
 
