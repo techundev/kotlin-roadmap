@@ -1,6 +1,6 @@
 # ✅ Solución — Variables y Null Safety
 
-← [Volver al tema](./README.md) · [Volver al inicio](../../README.md)
+← [Volver al tema](./variables-and-null-safety.md) · [Volver al inicio](../../README.md)
 
 ---
 

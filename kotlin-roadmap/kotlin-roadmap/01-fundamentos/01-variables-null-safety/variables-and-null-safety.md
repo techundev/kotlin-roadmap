@@ -48,7 +48,7 @@ val booleano: Boolean = true
 val inferido = "Tipo inferido automáticamente"
 ```
 
-▶️ [Ejecutar en Kotlin Playground](https://play.kotlinlang.org/editor/v1?code=fun%20main%28%29%20%7B%0A%20%20%20%20val%20entero%3A%20Int%20%3D%2042%0A%20%20%20%20val%20decimal%3A%20Double%20%3D%203.14%0A%20%20%20%20val%20texto%3A%20String%20%3D%20%22Hola%20Kotlin%22%0A%20%20%20%20val%20booleano%3A%20Boolean%20%3D%20true%0A%20%20%20%20val%20inferido%20%3D%20%22Tipo%20inferido%22%0A%20%20%20%20println%28%22%24entero%2C%20%24decimal%2C%20%24texto%2C%20%24booleano%2C%20%24inferido%22%29%0A%7D)
+▶️ [Ejecutar en Kotlin Playground](https://play.kotlinlang.org/#eyJ2ZXJzaW9uIjoiMi4zLjIxIiwicGxhdGZvcm0iOiJqYXZhIiwiYXJncyI6IiIsIm5vbmVNYXJrZXJzIjp0cnVlLCJ0aGVtZSI6ImlkZWEiLCJjb2RlIjoiLyoqXG4gKiBZb3UgY2FuIGVkaXQsIHJ1biwgYW5kIHNoYXJlIHRoaXMgY29kZS5cbiAqIHBsYXkua290bGlubGFuZy5vcmdcbiAqL1xuZnVuIG1haW4oKSB7XG4gICAgdmFsIGVudGVybzogSW50ID0gNDJcbiAgICB2YWwgZGVjaW1hbDogRG91YmxlID0gMy4xNFxuICAgIHZhbCB0ZXh0bzogU3RyaW5nID0gXCJIb2xhIEtvdGxpblwiXG4gICAgdmFsIGJvb2xlYW5vOiBCb29sZWFuID0gdHJ1ZVxuICAgIHZhbCBpbmZlcmlkbyA9IFwiVGlwbyBpbmZlcmlkbyBhdXRvbcOhdGljYW1lbnRlXCJcbn0ifQ==)
 
 ---
 
@@ -64,7 +64,7 @@ var apodo: String? = "Ana"
 apodo = null    // ✅ OK — el tipo String? permite null
 ```
 
-▶️ [Ejecutar en Kotlin Playground](https://play.kotlinlang.org/editor/v1?code=fun%20main%28%29%20%7B%0A%20%20%20%20var%20nombre%3A%20String%3F%20%3D%20%22Ana%22%0A%20%20%20%20println%28nombre%3F.length%29%0A%20%20%20%20nombre%20%3D%20null%0A%20%20%20%20println%28nombre%3F.length%29%0A%20%20%20%20println%28nombre%3F.length%20%3F%3A%200%29%0A%7D)
+▶️ [Ejecutar en Kotlin Playground](https://play.kotlinlang.org/#eyJ2ZXJzaW9uIjoiMi4zLjIxIiwicGxhdGZvcm0iOiJqYXZhIiwiYXJncyI6IiIsIm5vbmVNYXJrZXJzIjp0cnVlLCJ0aGVtZSI6ImlkZWEiLCJjb2RlIjoiLyoqXG4gKiBZb3UgY2FuIGVkaXQsIHJ1biwgYW5kIHNoYXJlIHRoaXMgY29kZS5cbiAqIHBsYXkua290bGlubGFuZy5vcmdcbiAqL1xuZnVuIG1haW4oKSB7XG4gICAgdmFyIG5vbWJyZTogU3RyaW5nID0gXCJBbmFcIlxuICAgIG5vbWJyZSA9IG51bGwgICAvLyDinYwgRXJyb3IgZGUgY29tcGlsYWNpw7NuXG5cbiAgICB2YXIgYXBvZG86IFN0cmluZz8gPSBcIkFuYVwiXG4gICAgYXBvZG8gPSBudWxsICAgIC8vIOKchSBPSyDigJQgZWwgdGlwbyBTdHJpbmc/IHBlcm1pdGUgbnVsbFxufSJ9)
 
 ---
 
@@ -115,7 +115,7 @@ fun main() {
 }
 ```
 
-▶️ [Ejecutar en Kotlin Playground](https://play.kotlinlang.org/editor/v1?code=fun%20describir%28nombre%3A%20String%3F%29%3A%20String%20%7B%0A%20%20%20%20val%20longitud%20%3D%20nombre%3F.length%20%3F%3A%200%0A%20%20%20%20return%20if%20%28longitud%20%3E%200%29%20%7B%0A%20%20%20%20%20%20%20%20%22El%20nombre%20%27%24nombre%27%20tiene%20%24longitud%20caracteres.%22%0A%20%20%20%20%7D%20else%20%7B%0A%20%20%20%20%20%20%20%20%22No%20se%20proporcion%C3%B3%20ning%C3%BAn%20nombre.%22%0A%20%20%20%20%7D%0A%7D%0A%0Afun%20main%28%29%20%7B%0A%20%20%20%20println%28describir%28%22Kotlin%22%29%29%0A%20%20%20%20println%28describir%28null%29%29%0A%20%20%20%20println%28describir%28%22%22%29%29%0A%7D)
+▶️ [Ejecutar en Kotlin Playground](https://play.kotlinlang.org/#eyJ2ZXJzaW9uIjoiMi4zLjIxIiwicGxhdGZvcm0iOiJqYXZhIiwiYXJncyI6IiIsIm5vbmVNYXJrZXJzIjp0cnVlLCJ0aGVtZSI6ImlkZWEiLCJjb2RlIjoiLyoqXG4gKiBZb3UgY2FuIGVkaXQsIHJ1biwgYW5kIHNoYXJlIHRoaXMgY29kZS5cbiAqIHBsYXkua290bGlubGFuZy5vcmdcbiAqL1xuZnVuIG1haW4oKSB7XG4gXHRwcmludGxuKGRlc2NyaWJpcihcIktvdGxpblwiKSlcbiAgICBwcmludGxuKGRlc2NyaWJpcihudWxsKSlcbiAgICBwcmludGxuKGRlc2NyaWJpcihcIlwiKSlcbn1cblxuZnVuIGRlc2NyaWJpcihub21icmU6IFN0cmluZz8pOiBTdHJpbmcge1xuICAgIHZhbCBsb25naXR1ZCA9IG5vbWJyZT8ubGVuZ3RoID86IDBcbiAgICByZXR1cm4gaWYgKGxvbmdpdHVkID4gMCkge1xuICAgICAgICBcIkVsIG5vbWJyZSAnJG5vbWJyZScgdGllbmUgJGxvbmdpdHVkIGNhcmFjdGVyZXMuXCJcbiAgICB9IGVsc2Uge1xuICAgICAgICBcIk5vIHNlIHByb3BvcmNpb27DsyBuaW5nw7puIG5vbWJyZS5cIlxuICAgIH1cbn1cbiJ9)
 
 ---
 
@@ -136,7 +136,7 @@ Crea una función `formatearUsuario` que reciba:
 
 **Reglas:** no puedes usar `!!` en ningún momento.
 
-▶️ [Abrir plantilla en Kotlin Playground](https://play.kotlinlang.org/editor/v1?code=fun%20formatearUsuario%28nombre%3A%20String%3F%2C%20apellido%3A%20String%3F%2C%20edad%3A%20Int%3F%29%3A%20String%20%7B%0A%20%20%20%20//%20Tu%20c%C3%B3digo%20aqu%C3%AD%0A%20%20%20%20return%20%22%22%0A%7D%0A%0Afun%20main%28%29%20%7B%0A%20%20%20%20println%28formatearUsuario%28%22Ana%22%2C%20%22Garc%C3%ADa%22%2C%2025%29%29%0A%20%20%20%20println%28formatearUsuario%28%22Ana%22%2C%20null%2C%2025%29%29%0A%20%20%20%20println%28formatearUsuario%28%22Ana%22%2C%20%22Garc%C3%ADa%22%2C%20null%29%29%0A%20%20%20%20println%28formatearUsuario%28null%2C%20null%2C%20null%29%29%0A%7D)
+▶️ [Abrir plantilla en Kotlin Playground](https://play.kotlinlang.org/#eyJ2ZXJzaW9uIjoiMi4zLjIxIiwicGxhdGZvcm0iOiJqYXZhIiwiYXJncyI6IiIsIm5vbmVNYXJrZXJzIjp0cnVlLCJ0aGVtZSI6ImlkZWEiLCJjb2RlIjoiLyoqXG4gKiBZb3UgY2FuIGVkaXQsIHJ1biwgYW5kIHNoYXJlIHRoaXMgY29kZS5cbiAqIHBsYXkua290bGlubGFuZy5vcmdcbiAqL1xuZnVuIG1haW4oKSB7XG4gICAgLyoqXG4gICAgICogQWRkIHlvdXIgY29kZSBoZXJlIVxuICAgICAqIC9cbn0ifQ==)
 
 > 💬 Intenta resolverlo antes de ver la solución.
 
