@@ -140,4 +140,4 @@ Crea una función `formatearUsuario` que reciba:
 
 > 💬 Intenta resolverlo antes de ver la solución.
 
-➡️ [Ver solución](./SOLUCION.md)
+➡️ [Ver solución](./variables-and-null-safety-solutions.md)
