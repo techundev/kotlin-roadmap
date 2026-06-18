@@ -4,7 +4,7 @@
 
 ---
 
-> ⚠️ **¿Ya intentaste el reto?** Si aún no, regresa al [README](./README.md) y prueba primero.
+> ⚠️ **¿Ya intentaste el reto?** Si aún no, regresa al [Variables y Null Safety](./variables-and-null-safety.md) y prueba primero.
 
 ---
 
