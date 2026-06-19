@@ -91,4 +91,4 @@ Esto permite verificar que todas las rutas posibles funcionan correctamente.
 
 ---
 
-➡️ [Siguiente tema: Funciones y lambdas](../03-functions-and-lambdas/README.md)
+➡️ [Siguiente tema: Funciones y lambdas](../03-functions-and-lambdas/functions-and-lambdas.md)

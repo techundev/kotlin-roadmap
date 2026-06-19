@@ -62,4 +62,4 @@ val edadStr = edad?.let { "$it años" } ?: "edad no disponible"
 
 ---
 
-➡️ [Siguiente tema: Control de flujo](../02-control-de-flujo/README.md) *(próximamente)*
+➡️ [Siguiente tema: Control de flujo](../02-control-flow/control-flow.md) *(próximamente)*
