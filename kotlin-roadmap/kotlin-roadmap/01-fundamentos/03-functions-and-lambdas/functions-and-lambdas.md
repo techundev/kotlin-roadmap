@@ -1,6 +1,6 @@
 # 03 · Funciones y lambdas básicas
 
-← [Volver al inicio](../../README.md) · [← Anterior](../02-control-flow/variables-and-null-safety.md)
+← [Volver al inicio](../../README.md) · [← Anterior](../02-control-flow/control-flow.md)
 
 ---
 
