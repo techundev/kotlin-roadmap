@@ -1,143 +1,94 @@
-# 01 · Variables y Null Safety
+# Solución — Control de flujo
 
-← [Volver al inicio](../../README.md)
-
----
-
-## 🎯 Objetivo
-
-Entender cómo Kotlin maneja las variables y por qué su sistema de **null safety** es una de sus características más poderosas — y lo que más lo diferencia de Java.
+← [Volver al tema](./control-flow.md) · [Volver al inicio](../../README.md)
 
 ---
 
-## 📖 ¿Qué vas a aprender?
-
-- Declarar variables con `val` y `var`
-- Entender los tipos de datos básicos
-- Comprender qué es `null` y por qué es peligroso
-- Usar tipos nullables (`String?`) con seguridad
-- Aplicar los operadores `?.`, `?:` y `!!`
+> ⚠️ **¿Ya intentaste el reto?** Si aún no, regresa al [Control de flujo](./control-flow.md) y prueba primero.
 
 ---
 
-## 💡 Teoría y ejemplos
-
-### `val` vs `var`
+## Solución
 
 ```kotlin
-val nombre = "Ana"   // inmutable (no se puede reasignar)
-var edad = 25        // mutable (se puede cambiar)
-
-edad = 26            // ✅ OK
-nombre = "Luis"      // ❌ Error de compilación
-```
-
-> 🔑 **Regla de oro:** usa siempre `val` por defecto. Solo usa `var` cuando realmente necesites cambiar el valor.
-
-▶️ [Ejecutar en Kotlin Playground](https://play.kotlinlang.org/#eyJ2ZXJzaW9uIjoiMi4zLjIwIiwicGxhdGZvcm0iOiJqYXZhIiwiYXJncyI6IiIsIm5vbmVNYXJrZXJzIjp0cnVlLCJ0aGVtZSI6ImlkZWEiLCJjb2RlIjoiLyoqXG4gKiBZb3UgY2FuIGVkaXQsIHJ1biwgYW5kIHNoYXJlIHRoaXMgY29kZS5cbiAqIHBsYXkua290bGlubGFuZy5vcmdcbiAqL1xuZnVuIG1haW4oKSB7XG4gIHZhbCBub21icmUgPSBcIkFuYVwiICAgLy8gaW5tdXRhYmxlIChubyBzZSBwdWVkZSByZWFzaWduYXIpXG4gIHZhciBlZGFkID0gMjUgICAgICAgIC8vIG11dGFibGUgKHNlIHB1ZWRlIGNhbWJpYXIpXG5cbiAgZWRhZCA9IDI2ICAgICAgICAgICAgLy8g4pyFIE9LXG4gIG5vbWJyZSA9IFwiTHVpc1wiICAgICAgLy8g4p2MIEVycm9yIGRlIGNvbXBpbGFjacOzblxufSJ9)
-
----
-
-### Tipos de datos básicos
-
-```kotlin
-val entero: Int = 42
-val decimal: Double = 3.14
-val texto: String = "Hola Kotlin"
-val booleano: Boolean = true
-val inferido = "Tipo inferido automáticamente"
-```
-
-▶️ [Ejecutar en Kotlin Playground](https://play.kotlinlang.org/#eyJ2ZXJzaW9uIjoiMi4zLjIxIiwicGxhdGZvcm0iOiJqYXZhIiwiYXJncyI6IiIsIm5vbmVNYXJrZXJzIjp0cnVlLCJ0aGVtZSI6ImlkZWEiLCJjb2RlIjoiLyoqXG4gKiBZb3UgY2FuIGVkaXQsIHJ1biwgYW5kIHNoYXJlIHRoaXMgY29kZS5cbiAqIHBsYXkua290bGlubGFuZy5vcmdcbiAqL1xuZnVuIG1haW4oKSB7XG4gICAgdmFsIGVudGVybzogSW50ID0gNDJcbiAgICB2YWwgZGVjaW1hbDogRG91YmxlID0gMy4xNFxuICAgIHZhbCB0ZXh0bzogU3RyaW5nID0gXCJIb2xhIEtvdGxpblwiXG4gICAgdmFsIGJvb2xlYW5vOiBCb29sZWFuID0gdHJ1ZVxuICAgIHZhbCBpbmZlcmlkbyA9IFwiVGlwbyBpbmZlcmlkbyBhdXRvbcOhdGljYW1lbnRlXCJcbn0ifQ==)
-
----
-
-### El problema del `null`
-
-En Java cualquier variable puede ser `null` sin advertencia, provocando el temido `NullPointerException`. Kotlin lo resuelve en tiempo de compilación.
-
-```kotlin
-var nombre: String = "Ana"
-nombre = null   // ❌ Error de compilación
-
-var apodo: String? = "Ana"
-apodo = null    // ✅ OK — el tipo String? permite null
-```
-
-▶️ [Ejecutar en Kotlin Playground](https://play.kotlinlang.org/#eyJ2ZXJzaW9uIjoiMi4zLjIxIiwicGxhdGZvcm0iOiJqYXZhIiwiYXJncyI6IiIsIm5vbmVNYXJrZXJzIjp0cnVlLCJ0aGVtZSI6ImlkZWEiLCJjb2RlIjoiLyoqXG4gKiBZb3UgY2FuIGVkaXQsIHJ1biwgYW5kIHNoYXJlIHRoaXMgY29kZS5cbiAqIHBsYXkua290bGlubGFuZy5vcmdcbiAqL1xuZnVuIG1haW4oKSB7XG4gICAgdmFyIG5vbWJyZTogU3RyaW5nID0gXCJBbmFcIlxuICAgIG5vbWJyZSA9IG51bGwgICAvLyDinYwgRXJyb3IgZGUgY29tcGlsYWNpw7NuXG5cbiAgICB2YXIgYXBvZG86IFN0cmluZz8gPSBcIkFuYVwiXG4gICAgYXBvZG8gPSBudWxsICAgIC8vIOKchSBPSyDigJQgZWwgdGlwbyBTdHJpbmc/IHBlcm1pdGUgbnVsbFxufSJ9)
-
----
-
-### Operadores para nullables
-
-#### `?.` — Safe call
-Ejecuta la operación solo si el valor no es null, si no devuelve null:
-```kotlin
-val nombre: String? = null
-println(nombre?.length)   // null — no explota
-```
-
-#### `?:` — Elvis operator
-Valor por defecto cuando el resultado es null:
-```kotlin
-val longitud = nombre?.length ?: 0    // 0 si nombre es null
-val display  = nombre ?: "Sin nombre" // fallback de texto
-```
-
-#### `!!` — Non-null assertion
-Fuerza el acceso; lanza excepción si es null. **Úsalo lo menos posible:**
-```kotlin
-val nombre: String? = "Ana"
-println(nombre!!.length)  // ✅ funciona
-
-val vacio: String? = null
-println(vacio!!.length)   // 💥 NullPointerException
-```
-
----
-
-### Ejemplo completo
-
-```kotlin
-fun describir(nombre: String?): String {
-    val longitud = nombre?.length ?: 0
-    return if (longitud > 0) {
-        "El nombre '$nombre' tiene $longitud caracteres."
-    } else {
-        "No se proporcionó ningún nombre."
+fun clasificarTemperatura(temperatura: Int): String {
+    return when {
+        temperatura < 0 -> "Congelación"
+        temperatura <= 15 -> "Frío"
+        temperatura <= 25 -> "Templado"
+        else -> "Calor"
     }
 }
 
 fun main() {
-    println(describir("Kotlin"))
-    println(describir(null))
-    println(describir(""))
+    println(clasificarTemperatura(-5))
+    println(clasificarTemperatura(10))
+    println(clasificarTemperatura(20))
+    println(clasificarTemperatura(35))
 }
 ```
 
-▶️ [Ejecutar en Kotlin Playground](https://play.kotlinlang.org/#eyJ2ZXJzaW9uIjoiMi4zLjIxIiwicGxhdGZvcm0iOiJqYXZhIiwiYXJncyI6IiIsIm5vbmVNYXJrZXJzIjp0cnVlLCJ0aGVtZSI6ImlkZWEiLCJjb2RlIjoiLyoqXG4gKiBZb3UgY2FuIGVkaXQsIHJ1biwgYW5kIHNoYXJlIHRoaXMgY29kZS5cbiAqIHBsYXkua290bGlubGFuZy5vcmdcbiAqL1xuZnVuIG1haW4oKSB7XG4gXHRwcmludGxuKGRlc2NyaWJpcihcIktvdGxpblwiKSlcbiAgICBwcmludGxuKGRlc2NyaWJpcihudWxsKSlcbiAgICBwcmludGxuKGRlc2NyaWJpcihcIlwiKSlcbn1cblxuZnVuIGRlc2NyaWJpcihub21icmU6IFN0cmluZz8pOiBTdHJpbmcge1xuICAgIHZhbCBsb25naXR1ZCA9IG5vbWJyZT8ubGVuZ3RoID86IDBcbiAgICByZXR1cm4gaWYgKGxvbmdpdHVkID4gMCkge1xuICAgICAgICBcIkVsIG5vbWJyZSAnJG5vbWJyZScgdGllbmUgJGxvbmdpdHVkIGNhcmFjdGVyZXMuXCJcbiAgICB9IGVsc2Uge1xuICAgICAgICBcIk5vIHNlIHByb3BvcmNpb27DsyBuaW5nw7puIG5vbWJyZS5cIlxuICAgIH1cbn1cbiJ9)
+▶️ [Ejecutar en Kotlin Playground](https://play.kotlinlang.org/#eyJ2ZXJzaW9uIjoiMi4zLjIxIiwicGxhdGZvcm0iOiJqYXZhIiwiYXJncyI6IiIsIm5vbmVNYXJrZXJzIjp0cnVlLCJ0aGVtZSI6ImlkZWEiLCJjb2RlIjoiLyoqXG4gKiBZb3UgY2FuIGVkaXQsIHJ1biwgYW5kIHNoYXJlIHRoaXMgY29kZS5cbiAqIHBsYXkua290bGlubGFuZy5vcmdcbiAqL1xuZnVuIG1haW4oKSB7XG4gICAgcHJpbnRsbihjbGFzaWZpY2FyVGVtcGVyYXR1cmEoLTUpKVxuICAgIHByaW50bG4oY2xhc2lmaWNhclRlbXBlcmF0dXJhKDEwKSlcbiAgICBwcmludGxuKGNsYXNpZmljYXJUZW1wZXJhdHVyYSgyMCkpXG4gICAgcHJpbnRsbihjbGFzaWZpY2FyVGVtcGVyYXR1cmEoMzUpKVxufVxuXG5mdW4gY2xhc2lmaWNhclRlbXBlcmF0dXJhKHRlbXBlcmF0dXJhOiBJbnQpOiBTdHJpbmcge1xuICAgIHJldHVybiB3aGVuIHtcbiAgICAgICAgdGVtcGVyYXR1cmEgPCAwIC0+IFwiQ29uZ2VsYWNpw7NuXCJcbiAgICAgICAgdGVtcGVyYXR1cmEgPD0gMTUgLT4gXCJGcsOtb1wiXG4gICAgICAgIHRlbXBlcmF0dXJhIDw9IDI1IC0+IFwiVGVtcGxhZG9cIlxuICAgICAgICBlbHNlIC0+IFwiQ2Fsb3JcIlxuICAgIH1cbn1cbiIsImNvbXBpbGVyQXJndW1lbnRzIjp7fX0=)
 
 ---
 
-## 🏋️ Reto
+## Explicación paso a paso
 
-Crea una función `formatearUsuario` que reciba:
+### 1. La función recibe un parámetro
 
-- `nombre: String?`
-- `apellido: String?`
-- `edad: Int?`
+```kotlin
+fun clasificarTemperatura(temperatura: Int): String
+```
 
-| Caso | Resultado esperado |
-|------|-------------------|
-| Los tres datos completos | `"Ana García, 25 años"` |
-| Sin apellido | `"Ana Desconocido, 25 años"` |
-| Sin edad | `"Ana García, edad no disponible"` |
-| Sin nombre ni apellido | `"Usuario anónimo, edad no disponible"` |
+Recibe un número entero y devuelve un texto con la clasificación correspondiente.
 
-**Reglas:** no puedes usar `!!` en ningún momento.
+### 2. Utilizamos when
 
-▶️ [Abrir plantilla en Kotlin Playground](https://play.kotlinlang.org/#eyJ2ZXJzaW9uIjoiMi4zLjIxIiwicGxhdGZvcm0iOiJqYXZhIiwiYXJncyI6IiIsIm5vbmVNYXJrZXJzIjp0cnVlLCJ0aGVtZSI6ImlkZWEiLCJjb2RlIjoiLyoqXG4gKiBZb3UgY2FuIGVkaXQsIHJ1biwgYW5kIHNoYXJlIHRoaXMgY29kZS5cbiAqIHBsYXkua290bGlubGFuZy5vcmdcbiAqL1xuZnVuIG1haW4oKSB7XG4gICAgLyoqXG4gICAgICogQWRkIHlvdXIgY29kZSBoZXJlIVxuICAgICAqIC9cbn0ifQ==)
+```kotlin
+when {
+    temperatura < 0 -> "Congelación"
+    temperatura <= 15 -> "Frío"
+    temperatura <= 25 -> "Templado"
+    else -> "Calor"
+}
+```
 
-> 💬 Intenta resolverlo antes de ver la solución.
+Cada condición se evalúa de arriba hacia abajo.
 
-➡️ [Ver solución](./variables-and-null-safety-solutions.md)
+Cuando una condición es verdadera, Kotlin devuelve inmediatamente el resultado asociado.
+
+### 3. El bloque else
+
+```kotlin
+else -> "Calor"
+```
+
+Captura cualquier valor que no haya coincidido con las condiciones anteriores.
+
+### 4. Probamos varios casos
+
+```kotlin
+println(clasificarTemperatura(-5))
+println(clasificarTemperatura(10))
+println(clasificarTemperatura(20))
+println(clasificarTemperatura(35))
+```
+
+Esto permite verificar que todas las rutas posibles funcionan correctamente.
+
+---
+
+## Resumen
+
+| Concepto | Para qué sirve |
+|----------|----------------|
+| if | Tomar decisiones simples |
+| if como expresión | Devolver valores según una condición |
+| when | Manejar múltiples casos de forma clara |
+| for | Repetir acciones recorriendo rangos o colecciones |
+| while | Repetir acciones mientras una condición sea verdadera |
+| else | Manejar escenarios no contemplados |
+
+---
+
+➡️ [Siguiente tema: Funciones y lambdas](../03-functions-and-lambdas/README.md)
