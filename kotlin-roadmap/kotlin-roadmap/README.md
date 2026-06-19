@@ -22,7 +22,7 @@ Repositorio de aprendizaje progresivo de Kotlin. Cada sección contiene teoría,
 |---|------|--------|
 | 01 | [Variables y Null Safety](./01-fundamentos/01-variables-null-safety/variables-and-null-safety.md) | ✅ |
 | 02 | [Control de flujo: `if`, `when`, loops](./01-fundamentos/02-control-flow/control-flow.md) | ✅ |
-| 03 | Funciones y lambdas básicas | 🔜 |
+| 03 | [Funciones y lambdas básicas](./01-fundamentos/03-functions-and-lambdas/functions-and-lambdas.md) | ✅ |
 | 04 | Clases, objetos y constructores | 🔜 |
 | 05 | Colecciones: `List`, `Map`, `Set` | 🔜 |
 
