@@ -24,7 +24,7 @@ Repositorio de aprendizaje progresivo de Kotlin. Cada sección contiene teoría,
 | 02 | [Control de flujo: `if`, `when`, loops](./01-fundamentos/02-control-flow/control-flow.md) | ✅ |
 | 03 | [Funciones y lambdas básicas](./01-fundamentos/03-functions-and-lambdas/functions-and-lambdas.md) | ✅ |
 | 04 | [Clases, objetos y constructores](./01-fundamentos/04-classes-and-objects/classes-and-objects.md) | ✅ |
-| 05 | Colecciones: `List`, `Map`, `Set` | 🔜 |
+| 05 | [Colecciones: `List`, `Map`, `Set`](./01-fundamentos/05-collections/collections.md) | ✅ |
 
 ### Etapa 02 — Programación Orientada a Objetos
 > Herencia, interfaces, data classes y sealed classes.
