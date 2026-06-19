@@ -4,7 +4,7 @@
 
 ---
 
-> **¿Ya intentaste el reto?** Si aún no, regresa al [Funciones y lambdas básicas](./functions-and-lambdas.md) y prueba primero.
+> **¿Ya intentaste el reto?** Si aún no, regresa al [reto](./functions-and-lambdas.md) y prueba primero.
 
 ---
 

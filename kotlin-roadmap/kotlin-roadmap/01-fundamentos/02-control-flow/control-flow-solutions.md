@@ -4,7 +4,7 @@
 
 ---
 
-> ⚠️ **¿Ya intentaste el reto?** Si aún no, regresa al [Control de flujo](./control-flow.md) y prueba primero.
+> ⚠️ **¿Ya intentaste el reto?** Si aún no, regresa al [reto](./control-flow.md) y prueba primero.
 
 ---
 
