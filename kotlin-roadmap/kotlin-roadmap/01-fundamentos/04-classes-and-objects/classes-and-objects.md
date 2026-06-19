@@ -108,6 +108,36 @@ fun main() {
 
 ---
 
+## Constructores secundarios
+
+Una clase puede tener más de una forma de crear objetos. Para ello se utilizan constructores secundarios mediante la palabra clave `constructor`.
+
+```kotlin
+class Usuario(
+    val nombre: String
+) {
+
+    var edad: Int = 0
+
+    constructor(
+        nombre: String,
+        edad: Int
+    ) : this(nombre) {
+        this.edad = edad
+    }
+}
+
+fun main() {
+    val usuario = Usuario("Ana")
+    val usuario2 = Usuario("Carlos", 25)
+
+    println(usuario.nombre)
+    println(usuario2.edad)
+}
+```
+
+▶️ [Ejecutar en Kotlin Playground](https://play.kotlinlang.org/#eyJ2ZXJzaW9uIjoiMi4zLjIxIiwicGxhdGZvcm0iOiJqYXZhIiwiYXJncyI6IiIsIm5vbmVNYXJrZXJzIjp0cnVlLCJ0aGVtZSI6ImlkZWEiLCJjb2RlIjoiLyoqXG4gKiBZb3UgY2FuIGVkaXQsIHJ1biwgYW5kIHNoYXJlIHRoaXMgY29kZS5cbiAqIHBsYXkua290bGlubGFuZy5vcmdcbiAqL1xuY2xhc3MgVXN1YXJpbyhcbiAgICB2YWwgbm9tYnJlOiBTdHJpbmdcbikge1xuXG4gICAgdmFyIGVkYWQ6IEludCA9IDBcblxuICAgIGNvbnN0cnVjdG9yKFxuICAgICAgICBub21icmU6IFN0cmluZyxcbiAgICAgICAgZWRhZDogSW50XG4gICAgKSA6IHRoaXMobm9tYnJlKSB7XG4gICAgICAgIHRoaXMuZWRhZCA9IGVkYWRcbiAgICB9XG59XG5cbmZ1biBtYWluKCkge1xuICAgIHZhbCB1c3VhcmlvID0gVXN1YXJpbyhcIkFuYVwiKVxuICAgIHZhbCB1c3VhcmlvMiA9IFVzdWFyaW8oXCJDYXJsb3NcIiwgMjUpXG5cbiAgICBwcmludGxuKHVzdWFyaW8ubm9tYnJlKVxuICAgIHByaW50bG4odXN1YXJpbzIuZWRhZClcbn0iLCJjb21waWxlckFyZ3VtZW50cyI6e319)
+
 ## Reto
 
 Desarrolla una clase llamada `CuentaBancaria`.
