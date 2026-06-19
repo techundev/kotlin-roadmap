@@ -1,97 +1,180 @@
-# Solución — Clases, objetos y constructores
+# Solución — Colecciones: List, Map, Set
 
-← [Volver al inicio](../../README.md) · [Volver al tema](./classes-and-objects.md)
+← [Volver al tema](./collections.md) · [Volver al inicio](../../README.md)
 
 ---
 
-> **¿Ya intentaste el reto?** Si aún no, regresa al [reto](./classes-and-objects.md) y prueba primero.
+> **¿Ya intentaste el reto?** Si aún no, regresa al [reto](./collections.md) y prueba primero.
 
 ---
 
 ## Solución
 
 ```kotlin
-class CuentaBancaria(
-    val titular: String,
-    saldoInicial: Double
-) {
+fun generarReporteVentas(
+    ventas: List<Double>
+): Map<String, Double> {
 
-    private var saldo = saldoInicial
+    val totalVentas = ventas.sum()
 
-    fun depositar(monto: Double) {
-        if (monto > 0) {
-            saldo += monto
-        }
+    val promedioVentas = if (ventas.isNotEmpty()) {
+        ventas.average()
+    } else {
+        0.0
     }
 
-    fun retirar(monto: Double) {
-        if (monto > 0 && monto <= saldo) {
-            saldo -= monto
-        }
-    }
+    val ventaMayor = ventas.maxOrNull() ?: 0.0
 
-    fun obtenerSaldo(): Double {
-        return saldo
-    }
+    val cantidadVentas = ventas.size.toDouble()
+
+    return mapOf(
+        "totalVentas" to totalVentas,
+        "promedioVentas" to promedioVentas,
+        "ventaMayor" to ventaMayor,
+        "cantidadVentas" to cantidadVentas
+    )
 }
 
 fun main() {
-    val cuenta = CuentaBancaria("Ana", 1000.0)
-
-    println(cuenta.obtenerSaldo())
-
-    cuenta.depositar(500.0)
-    println(cuenta.obtenerSaldo())
-
-    cuenta.retirar(300.0)
-    println(cuenta.obtenerSaldo())
-
-    cuenta.retirar(2000.0)
-    println(cuenta.obtenerSaldo())
+    println(generarReporteVentas(listOf(100.0, 200.0, 300.0)))
+    println(generarReporteVentas(listOf(50.0, 50.0, 50.0, 50.0)))
+    println(generarReporteVentas(listOf(1000.0)))
+    println(generarReporteVentas(emptyList()))
 }
 ```
 
-▶️ [Ejecutar en Kotlin Playground](https://play.kotlinlang.org/#eyJ2ZXJzaW9uIjoiMi4zLjIxIiwicGxhdGZvcm0iOiJqYXZhIiwiYXJncyI6IiIsIm5vbmVNYXJrZXJzIjp0cnVlLCJ0aGVtZSI6ImlkZWEiLCJjb2RlIjoiLyoqXG4gKiBZb3UgY2FuIGVkaXQsIHJ1biwgYW5kIHNoYXJlIHRoaXMgY29kZS5cbiAqIHBsYXkua290bGlubGFuZy5vcmdcbiAqL1xuY2xhc3MgQ3VlbnRhQmFuY2FyaWEoXG4gICAgdmFsIHRpdHVsYXI6IFN0cmluZyxcbiAgICBzYWxkb0luaWNpYWw6IERvdWJsZVxuKSB7XG5cbiAgICBwcml2YXRlIHZhciBzYWxkbyA9IHNhbGRvSW5pY2lhbFxuXG4gICAgZnVuIGRlcG9zaXRhcihtb250bzogRG91YmxlKSB7XG4gICAgICAgIGlmIChtb250byA+IDApIHtcbiAgICAgICAgICAgIHNhbGRvICs9IG1vbnRvXG4gICAgICAgIH1cbiAgICB9XG5cbiAgICBmdW4gcmV0aXJhcihtb250bzogRG91YmxlKSB7XG4gICAgICAgIGlmIChtb250byA+IDAgJiYgbW9udG8gPD0gc2FsZG8pIHtcbiAgICAgICAgICAgIHNhbGRvIC09IG1vbnRvXG4gICAgICAgIH1cbiAgICB9XG5cbiAgICBmdW4gb2J0ZW5lclNhbGRvKCk6IERvdWJsZSB7XG4gICAgICAgIHJldHVybiBzYWxkb1xuICAgIH1cbn1cblxuZnVuIG1haW4oKSB7XG4gICAgdmFsIGN1ZW50YSA9IEN1ZW50YUJhbmNhcmlhKFwiQW5hXCIsIDEwMDAuMClcblxuICAgIHByaW50bG4oY3VlbnRhLm9idGVuZXJTYWxkbygpKVxuXG4gICAgY3VlbnRhLmRlcG9zaXRhcig1MDAuMClcbiAgICBwcmludGxuKGN1ZW50YS5vYnRlbmVyU2FsZG8oKSlcblxuICAgIGN1ZW50YS5yZXRpcmFyKDMwMC4wKVxuICAgIHByaW50bG4oY3VlbnRhLm9idGVuZXJTYWxkbygpKVxuXG4gICAgY3VlbnRhLnJldGlyYXIoMjAwMC4wKVxuICAgIHByaW50bG4oY3VlbnRhLm9idGVuZXJTYWxkbygpKVxufSIsImNvbXBpbGVyQXJndW1lbnRzIjp7fX0=)
+▶️ [Ejecutar en Kotlin Playground](https://play.kotlinlang.org/#eyJ2ZXJzaW9uIjoiMi4zLjIxIiwicGxhdGZvcm0iOiJqYXZhIiwiYXJncyI6IiIsIm5vbmVNYXJrZXJzIjp0cnVlLCJ0aGVtZSI6ImlkZWEiLCJjb2RlIjoiLyoqXG4gKiBZb3UgY2FuIGVkaXQsIHJ1biwgYW5kIHNoYXJlIHRoaXMgY29kZS5cbiAqIHBsYXkua290bGlubGFuZy5vcmdcbiAqL1xuZnVuIGdlbmVyYXJSZXBvcnRlVmVudGFzKFxuICAgIHZlbnRhczogTGlzdDxEb3VibGU+XG4pOiBNYXA8U3RyaW5nLCBEb3VibGU+IHtcblxuICAgIHZhbCB0b3RhbFZlbnRhcyA9IHZlbnRhcy5zdW0oKVxuXG4gICAgdmFsIHByb21lZGlvVmVudGFzID0gaWYgKHZlbnRhcy5pc05vdEVtcHR5KCkpIHtcbiAgICAgICAgdmVudGFzLmF2ZXJhZ2UoKVxuICAgIH0gZWxzZSB7XG4gICAgICAgIDAuMFxuICAgIH1cblxuICAgIHZhbCB2ZW50YU1heW9yID0gdmVudGFzLm1heE9yTnVsbCgpID86IDAuMFxuXG4gICAgdmFsIGNhbnRpZGFkVmVudGFzID0gdmVudGFzLnNpemUudG9Eb3VibGUoKVxuXG4gICAgcmV0dXJuIG1hcE9mKFxuICAgICAgICBcInRvdGFsVmVudGFzXCIgdG8gdG90YWxWZW50YXMsXG4gICAgICAgIFwicHJvbWVkaW9WZW50YXNcIiB0byBwcm9tZWRpb1ZlbnRhcyxcbiAgICAgICAgXCJ2ZW50YU1heW9yXCIgdG8gdmVudGFNYXlvcixcbiAgICAgICAgXCJjYW50aWRhZFZlbnRhc1wiIHRvIGNhbnRpZGFkVmVudGFzXG4gICAgKVxufVxuXG5mdW4gbWFpbigpIHtcbiAgICBwcmludGxuKGdlbmVyYXJSZXBvcnRlVmVudGFzKGxpc3RPZigxMDAuMCwgMjAwLjAsIDMwMC4wKSkpXG4gICAgcHJpbnRsbihnZW5lcmFyUmVwb3J0ZVZlbnRhcyhsaXN0T2YoNTAuMCwgNTAuMCwgNTAuMCwgNTAuMCkpKVxuICAgIHByaW50bG4oZ2VuZXJhclJlcG9ydGVWZW50YXMobGlzdE9mKDEwMDAuMCkpKVxuICAgIHByaW50bG4oZ2VuZXJhclJlcG9ydGVWZW50YXMoZW1wdHlMaXN0KCkpKVxufSIsImNvbXBpbGVyQXJndW1lbnRzIjp7fX0=)
+
+---
 
 ## Explicación paso a paso
 
-### Encapsulación del saldo
+### 1. Calcular el total de ventas
 
 ```kotlin
-private var saldo = saldoInicial
+val totalVentas = ventas.sum()
 ```
 
-El saldo es privado para evitar modificaciones directas desde fuera de la clase.
+La función `sum()` recorre todos los elementos de la lista y devuelve la suma total de los valores.
 
-### Depósitos
+Ejemplo:
 
 ```kotlin
-if (monto > 0)
+listOf(100.0, 200.0, 300.0).sum()
 ```
 
-Solo se aceptan montos positivos.
+Resultado:
 
-### Retiros
+```text
+600.0
+```
+
+---
+
+### 2. Calcular el promedio
 
 ```kotlin
-if (monto > 0 && monto <= saldo)
+val promedioVentas = if (ventas.isNotEmpty()) {
+    ventas.average()
+} else {
+    0.0
+}
 ```
 
-Se valida que exista saldo suficiente antes de descontar dinero.
+La función `average()` calcula el promedio de todos los elementos.
 
-### Consulta del saldo
+Antes de llamarla verificamos que la lista no esté vacía para evitar resultados inesperados.
+
+Ejemplo:
 
 ```kotlin
-fun obtenerSaldo(): Double
+listOf(100.0, 200.0, 300.0).average()
 ```
 
-Permite conocer el saldo actual sin exponer la variable interna.
+Resultado:
 
-### Beneficios del diseño
+```text
+200.0
+```
 
-- El saldo siempre permanece consistente.
-- Las reglas de negocio están centralizadas.
-- Se evita modificar el saldo desde fuera de la clase.
+---
+
+### 3. Obtener la venta más alta
+
+```kotlin
+val ventaMayor = ventas.maxOrNull() ?: 0.0
+```
+
+La función `maxOrNull()` devuelve el valor más grande de la colección.
+
+Si la lista está vacía, devuelve `null`, por lo que usamos el operador Elvis (`?:`) para retornar `0.0`.
+
+Ejemplo:
+
+```kotlin
+listOf(100.0, 200.0, 300.0).maxOrNull()
+```
+
+Resultado:
+
+```text
+300.0
+```
+
+---
+
+### 4. Obtener la cantidad de ventas
+
+```kotlin
+val cantidadVentas = ventas.size.toDouble()
+```
+
+La propiedad `size` devuelve la cantidad de elementos de la lista.
+
+Se convierte a `Double` porque todos los valores almacenados en el `Map` son de tipo `Double`.
+
+Ejemplo:
+
+```kotlin
+listOf(100.0, 200.0, 300.0).size
+```
+
+Resultado:
+
+```text
+3
+```
+
+---
+
+### 5. Construir el reporte
+
+```kotlin
+return mapOf(
+    "totalVentas" to totalVentas,
+    "promedioVentas" to promedioVentas,
+    "ventaMayor" to ventaMayor,
+    "cantidadVentas" to cantidadVentas
+)
+```
+
+`mapOf()` crea un `Map` utilizando pares clave-valor.
+
+Cada clave representa una métrica del reporte y cada valor contiene el resultado calculado.
+
+---
+
+## Resultado de las pruebas
+
+```text
+{totalVentas=600.0, promedioVentas=200.0, ventaMayor=300.0, cantidadVentas=3.0}
+
+{totalVentas=200.0, promedioVentas=50.0, ventaMayor=50.0, cantidadVentas=4.0}
+
+{totalVentas=1000.0, promedioVentas=1000.0, ventaMayor=1000.0, cantidadVentas=1.0}
+
+{totalVentas=0.0, promedioVentas=0.0, ventaMayor=0.0, cantidadVentas=0.0}
+```
 
 ---
 
@@ -99,14 +182,14 @@ Permite conocer el saldo actual sin exponer la variable interna.
 
 | Concepto | Para qué sirve |
 |----------|----------------|
-| class | Crear nuevos tipos de datos |
-| Constructor | Inicializar objetos |
-| Objeto | Instancia de una clase |
-| Propiedad | Almacenar estado |
-| Método | Definir comportamiento |
-| private | Restringir acceso |
-| Encapsulación | Proteger datos internos |
+| List | Almacenar una colección ordenada de elementos |
+| sum() | Obtener la suma de todos los valores |
+| average() | Calcular el promedio de una colección numérica |
+| maxOrNull() | Obtener el valor más alto de una colección |
+| size | Obtener la cantidad de elementos |
+| Map | Almacenar información en pares clave-valor |
+| ?: | Proporcionar un valor por defecto cuando el resultado es null |
 
 ---
 
-➡️ [Siguiente tema: Colecciones](../05-collections/README.md)
+➡️ [Siguiente tema: Programación Orientada a Objetos](../../etapa-02-poo/object-oriented-programming/README.md)
